@@ -20,10 +20,10 @@ fit f1(x) "data/even_even.txt" u 1:2 via a1
 set multiplot
 
 #..... Top Plot .....
-set size 1,0.7
+set size 1,0.75
 set key box vertical width 1.5 height 0.2 maxcols 1  bottom
 set grid
-set origin 0.0,0.3
+set origin 0.0,0.25
 
 set tmargin 0.2
 set bmargin 0.5
@@ -34,7 +34,7 @@ set xtics ( "" 5  ,  "" 5.5 , "" 6 , "" 6.5, "" 7 )
 set ytics ( "6.0" 6.0 ,"6.5" 6.5  ,  "7.0" 7.0, "7.5" 7.5 , "8.0" 8.0 , "8.5" 8.5 , "9.0" 9.0)
 
 unset xlabel
-set ylabel "a(fm)" offset 0
+set ylabel "a(fm)" offset 0.8
 
 set xrange[4.7:7.5]
 set yrange[5.6:9.2]
@@ -51,20 +51,20 @@ plot  "data/even_even.txt"    u 1:2 w p ps 0.2 pt 7 lc rgb "red" title  "EE" ,\
 
 
 #..... Bottom Plot .....
-set size 1,0.3
+set size 1,0.25
 unset key
 set grid
 set origin 0.0,0.0
 
 set tmargin 0
-set bmargin 3
+set bmargin 2
 set rmargin 0.2
 set lmargin 6.7
 
 set xtics ( "" 5  ,  "" 5.5 , "" 6 , "" 6.5, "" 7 )
 set ytics ( "-2" -2 , "" -1  ,  "0" 0 ,  "" 1 ,"2" 2)
 
-set xlabel "A^{1/3}" 
+set xlabel "A^{1/3}" offset 0,1.5
 set ylabel "err" offset 0
 
 set xrange[4.7:7.5]
@@ -77,7 +77,7 @@ plot  "data/even_even.txt"    u 1:($2-f1($1)) w p ps 0.2 pt 7 lc rgb "red" title
       "data/even_odd.txt"     u 1:($2-f1($1)) w p ps 0.2 pt 7 lc rgb "blue" title  "EO" ,\
       "data/odd_even.txt"     u 1:($2-f1($1)) w p ps 0.2 pt 7 lc rgb "orange" title  "EE" ,\
       0 notitle lc -1
-      
+
 #..... Reset .....
 unset multiplot
 set output
